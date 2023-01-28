@@ -1,0 +1,27 @@
+.c-l-container {
+    padding: 10px;
+    background: #fff;
+    max-height: 80vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+.c-l-controls {
+    border-bottom: 2px groove #fff;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+}
+
+.c-l-cars-wrapper {
+    border: 2px dashed orange;
+    overflow-y: scroll;
+    flex: 1;
+}
+
+.car-visible {
+    border: 2px dashed gray;
+    padding: 10px;
+    margin: 2px;
+    min-height: 200px;
+}

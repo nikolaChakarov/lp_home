@@ -1,0 +1,42 @@
+<template>
+    <div class="c-l-container">
+        <div class="c-l-controls">
+            <h1>Car List</h1>
+            <button>Filters</button>
+            
+            <label>
+                <!-- <input
+                    type="text"
+                    onchange={handleSearch}
+                    value={searchTerm}
+                > -->
+                <lightning-input type="text" onchange={handleSearch}></lightning-input>
+            </label>
+        </div>
+    
+        <div
+            class="c-l-cars-wrapper"
+            onscroll={handleScroll}
+        >
+            <template for:each={cars} for:item="car">
+                <div
+                    key={car.Id}
+                    class="car-wrapper"
+                >
+                    <div 
+                        class="car-visible"
+                        data-id={car.Id}
+                        onclick={handleVisible}
+                    >
+                        <span class="car-initials">{car.Initials}</span>
+                        <span class="car-name">{car.Name}</span>
+                    </div>
+        
+                    <template if:true={car.selected}>
+                        <button>Details...</button>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>
