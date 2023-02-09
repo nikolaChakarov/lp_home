@@ -5,6 +5,7 @@
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .c-l-controls {

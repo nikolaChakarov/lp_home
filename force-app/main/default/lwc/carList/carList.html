@@ -2,17 +2,21 @@
     <div class="c-l-container">
         <div class="c-l-controls">
             <h1>Car List</h1>
-            <button>Filters</button>
+            <button 
+                onclick={handleShowFilters}
+            >Filters</button>
             
             <label>
-                <!-- <input
-                    type="text"
-                    onchange={handleSearch}
-                    value={searchTerm}
-                > -->
                 <lightning-input type="text" onchange={handleSearch}></lightning-input>
             </label>
         </div>
+
+        <template if:true={showFilters}> 
+            <c-car-filters
+                filter-el={filterEl}
+                onclosefilters={handleShowFilters}
+            ></c-car-filters>
+        </template>
     
         <div
             class="c-l-cars-wrapper"
@@ -33,7 +37,7 @@
                     </div>
         
                     <template if:true={car.selected}>
-                        <button>Details...</button>
+                        <button onclick={showDetailsComponent}>Details...</button>
                     </template>
                 </div>
             </template>

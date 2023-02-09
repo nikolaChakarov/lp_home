@@ -8,6 +8,19 @@ export default class CarList extends LightningElement {
     offset = 0;
     searchTerm = '';
     timer;
+    showFilters = false;
+
+    filterEl = [
+        {section: 'Date', options: [
+            {label: 'Today', selected: true},
+            {label: 'Yesterday'}
+        ]},
+        {section: 'User', options: [
+            {label: 'Register'},
+            {label: 'Anonymous'}
+        ]}
+    ]
+
 
     connectedCallback() {
         this.updateCars(this.limit, this.offset, this.searchTerm);
@@ -21,8 +34,8 @@ export default class CarList extends LightningElement {
 
             this.cars = [...this.cars, ...cars];
             
-            // console.log('cars: ', JSON.stringify(this.cars));
-            // console.log('size: ', this.cars.length);
+            console.log('cars: ', JSON.stringify(this.cars));
+            console.log('size: ', this.cars.length);
         } catch (err) {
             console.error('err: ',JSON.stringify(err));
         }
@@ -71,6 +84,14 @@ export default class CarList extends LightningElement {
 
         const car = this.cars.find(el => el.Id === id);
         car.selected = !car.selected;
+    }
+
+    handleShowFilters() {
+        this.showFilters = !this.showFilters;
+    }
+
+    handleApply() {
+        
     }
 
 }

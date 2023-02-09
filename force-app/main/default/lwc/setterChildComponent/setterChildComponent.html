@@ -1,0 +1,49 @@
+<template>
+    <div class="setter-child">
+        <p>
+            <span>User name:</span> {userInfo.name}
+        </p>
+        <p>
+            <span>User age:</span> {userInfo.age}
+        </p>
+
+        <label>
+            <span>Change Name</span>
+            <lightning-input
+                type="text"
+                onchange={handleChange}
+                value={inputValue}
+            ></lightning-input>
+        </label>
+
+        <button 
+            onclick={handleClick}
+        >Submit</button>
+
+        <hr />
+
+        <p>Year: </p>
+
+        <label>
+            <span>Enter Year ... 4 digits!</span>
+            <lightning-input
+                type="number"
+                min='1900'
+                max={currentYear}
+                class="year-input"
+            ></lightning-input>
+            <button 
+                onclick={changeYear}
+            >Change Year</button>
+        </label>
+
+        <div class="months-wrapper">
+            <template for:each={months} for:item="month">
+                <div 
+                    key={month}
+                    class="month"
+                >{month}</div>
+            </template>
+        </div>
+    </div>
+</template>
