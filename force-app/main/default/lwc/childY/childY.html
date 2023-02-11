@@ -1,0 +1,13 @@
+<template>
+    <lightning-card>
+        <div class="slds-p-around_medium y-container" onclick={handleClick}>
+            <span>{car.Name}</span>
+        </div>
+
+        <template if:true={selected}>
+            <div class="inner">
+                car is clicked...
+            </div>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,12 @@
+<template>
+    <lightning-card>
+        <div class="slds-p-around_medium">
+            <template for:each={cars} for:item="car">
+                <c-child-y 
+                    key={car.Id}
+                    car={car}
+                ></c-child-y>
+            </template>
+        </div>
+    </lightning-card>
+</template>

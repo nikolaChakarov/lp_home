@@ -1,0 +1,8 @@
+.y-container {
+    border: 2px dashed lightcoral;
+}
+
+.inner {
+    padding: 5px;
+    border: 2px dashed lightgreen;
+}
