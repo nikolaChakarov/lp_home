@@ -1,5 +1,5 @@
 import { LightningElement, wire, api } from 'lwc';
-import { subscribe, MessageContext, APPLICATION_SCOPE, unsubscribe } from 'lightning/messageService';
+import { subscribe, MessageContext, APPLICATION_SCOPE, unsubscribe, publish } from 'lightning/messageService';
 import MyMessageChannel from '@salesforce/messageChannel/test__c';
 
 export default class ChildY extends LightningElement {
@@ -30,6 +30,8 @@ export default class ChildY extends LightningElement {
 
     handleClick(e) {
         this.selected = !this.selected;
+
+        publish(this.messageContext, MyMessageChannel, { childY: 'message from childY component...'})
     }
 
     // renderedCallback() {

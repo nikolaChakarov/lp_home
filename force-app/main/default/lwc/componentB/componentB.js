@@ -14,6 +14,7 @@ export default class ComponentB extends LightningElement {
     }
 
     handleMessage(msg) {
+        console.log('msg from componentB: ', JSON.parse(JSON.stringify(msg)));
         if (msg.to !== 'componentB') return;
         this.message = msg.data.value;
     }

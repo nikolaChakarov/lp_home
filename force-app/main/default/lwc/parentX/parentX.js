@@ -13,6 +13,8 @@ export default class ParentX extends LightningElement {
 
     connectedCallback() {
         this.initialFetch(this.limit, this.offset);
+
+        publish(this.messageContext, MyMessageChannel, { parentX: 'message from parentX'});
     }
 
     async initialFetch(limit, offset, searchTerm = '') {
@@ -24,20 +26,20 @@ export default class ParentX extends LightningElement {
         }
     }
 
-    handleClick(e) {
-        const id = e.currentTarget.dataset.id;
-        const clickedCar = this.cars.find(el => el.Id === id);
+    // handleClick(e) {
+    //     const id = e.currentTarget.dataset.id;
+    //     const clickedCar = this.cars.find(el => el.Id === id);
 
-        console.log('clickedCar: ', clickedCar);
+    //     console.log('clickedCar: ', clickedCar);
     
-        const message = {
-            ID: id,
-            origin: 'parent-x',
-            to: 'child-y',
-            data: {...clickedCar}
-        }
+    //     const message = {
+    //         ID: id,
+    //         origin: 'parent-x',
+    //         to: 'child-y',
+    //         data: {...clickedCar}
+    //     }
 
-        publish(this.messageContext, MyMessageChannel, message)
-    }
+    //     publish(this.messageContext, MyMessageChannel, message)
+    // }
 
 }
